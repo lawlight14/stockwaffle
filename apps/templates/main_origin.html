@@ -1,0 +1,173 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>stockwaffle</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link href='//cdn.jsdelivr.net/font-nanum/1.0/nanumbarungothic/nanumbarungothic.css' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="{{ url_for('static', filename='bower_components/bootstrap/dist/css/bootstrap.css') }}" />
+    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/table.css') }}">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/dropdown.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</head>
+<body>
+<div id="bg" class="main-bg" >
+<div id="header" class="main-h">
+    <div id="logo"><img id="logo-icon" src="../static/img/waffle.png"><span class="lobster">StockWaffle</span></div>
+
+    <div class="logout"><a href="">로그아웃</a></div>
+</div>
+
+<div id="body">
+<!--     <div class="storelist">
+        <ul class="store">
+        <button class="btn btn-block btn-primary">
+            <span class="glyphicon glyphicon-plus"></span>  가게생성</button>
+    </ul>
+        <ul class="store">
+            <li class="store-name">가게1
+                <span class="glyphicon glyphicon-chevron-down"></span>
+                <span class="glyphicon glyphicon-chevron-up"></span>
+            </li>
+            <li class="account">거래처1</li>
+            <li class="account">거래처1</li>
+            <li class="account"><span class="point"><span class="glyphicon glyphicon-plus"></span>  거래처 추가</span></li>
+        </ul>
+    </div> -->
+    <div class="detail">
+        <ul class="toollist">
+            <li id="tool-input" class="toolset"><a href="#">
+                <span class=" glyphicon glyphicon-pencil responsive-show"></span>
+                <span class="responsive-hide">입력</span>
+            </a></li>
+            <li><a href="#">
+                <span class="glyphicon glyphicon-wrench responsive-show"></span>
+                <span class="responsive-hide">재고관리</span>
+            </a></li>
+            <li><a href="#">
+                <span class="glyphicon glyphicon-wrench responsive-show"></span>
+                <span class="responsive-hide">수정</span>
+            </a></li>
+            <li><a href="#">
+                <span class="glyphicon glyphicon-remove responsive-show"></span>
+                <span class="responsive-hide">삭제</span>
+            </a></li>
+            <li><a href="#">
+                <span class="glyphicon glyphicon-repeat responsive-show"></span> 
+                <span class="responsive-hide">되돌리기</span>             
+            </a></li>
+            <li><a href="#">
+                <span class="glyphicon glyphicon-stats responsive-show"></span>
+                <span class="responsive-hide">통계</span>
+            </a></li><!--
+            <li class="devider"></li>
+            <li><a href="#">
+                <span class="glyphicon glyphicon-floppy-save responsive-show"></span>
+                <span class="responsive-hide">내려받기</span>
+            </a></li>
+            <li><a href="#">
+                <span class="glyphicon glyphicon-envelope responsive-show"></span>
+                <span class="responsive-hide">메일로받기</span>
+            </a></li>
+            <li><a href="#">
+                <span class="glyphicon glyphicon-print responsive-show"></span>
+                <span class="responsive-hide">인쇄</span>
+            </a></li>-->
+            <form class="searchbar-container">
+                <input type="text" id="searchbar" placeholder="검색하세요">
+                <button id="searchbutton" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+            </form>
+        </ul>
+        <div class="stocklist">
+            <div class="fixed-head-table">
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>
+                                 <input type="checkbox">
+                                    <div><input type="checkbox" id="select-all"></div>
+                                </th>
+                                <th>카테고리<div>
+                                    <div class="btn-group">
+            <button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle">카테고리 <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+                <li><a href="#">전체</a></li>
+                <li><a href="#">과일</a></li>
+<!--                 <li class="divider"></li> -->
+                <li><a href="#">채소</a></li>
+            </ul>
+        </div>
+</div></th>
+                                <th>품명<div>품명</div></th>
+                                <th>규격<div>규격</div></th>
+                                <th>실재고<div>실재고</div></th>
+                                <th>단가<div>단가</div></th>
+                                <th>어제<div class="line-left">어제</div></th>
+                                <th>오늘<div>오늘</div></th>
+                                <th>메모<div class="line-left">메모</div></th>
+                                <th>전월재고<div>전월재고</div></th>
+                                <th>
+                                    <div class="transparent">hide</div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td><span>예시</span><input class="form-control input-sm" type="text"></td>
+                                <td><span>예시</span><input class="form-control input-sm" type="text"></td>
+                                <td><span>1</span><input class="form-control input-sm" type="text"></td>
+                                <td><span>1</span><input class="form-control input-sm" type="text"></td>
+                                <td><span>1</span><input class="form-control input-sm" type="text"></td>
+                                <td><span>1</span><input class="form-control input-sm" type="text"></td>
+                                <td><span>1</span><input class="form-control input-sm" type="text"></td>
+                                <td><span>1</span><input class="form-control input-sm" type="text"></td>
+                                <td><span>1</span><input class="form-control input-sm" type="text"></td>
+                                <td>
+                                    <button class="btn btn-sm btn-primary">재고관리</button>
+                                    <button class="btn-edit btn btn-sm btn-primary">수정</button>
+                                    <button class="btn-confirm btn btn-sm btn-primary">확인</button>
+                                    <button class="bhn-del btn btn-sm btn-primary">삭제</button>
+                                </td>
+                            </tr>
+                            {% for stock in slist %}
+                                <tr stock-no="{{ stock['no'] }}">
+                                    <td><input type="checkbox"></td>
+                                    <td><span>{{ stock['category'] }}</span><input class="form-control input-sm" type="text"></td>
+                                    <td><span>{{ stock['name'] }}</span><input class="form-control input-sm" type="text"></td>
+                                    <td><span>{{ stock['size'] }}</span><input class="form-control input-sm" type="text"></td>
+                                    <td><span>{{ stock['stock'] }}</span><input class="form-control input-sm" type="text"></td>
+                                    <td><span>{{ stock['unitcost'] }}</span><input class="form-control input-sm" type="text"></td>
+                                    <td><span>{{ stock['ystock'] }}</span><input class="form-control input-sm" type="text"></td>
+                                    <td><span>{{ stock['stock'] }}</span><input class="form-control input-sm" type="text"></td>
+                                    <td><span>{{ stock['bmstock'] }}</span><input class="form-control input-sm" type="text"></td>
+                                    <td><span>{{ stock['memo'] }}</span><input class="form-control input-sm" type="text"></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-primary">재고관리</button>
+                                        <button class="btn-edit btn btn-sm btn-primary">수정</button>
+                                        <button class="btn-confirm btn btn-sm btn-primary">확인</button>
+                                        <button class="bhn-del btn btn-sm btn-primary">삭제</button>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+<!--script src="../static/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../static/bower_components/bootstrap/dist/js/bootstrap.js"></script-->
+</body>
+</html>

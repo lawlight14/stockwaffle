@@ -1,0 +1,88 @@
+
+.fixed-head-table{
+	position: relative;
+	/*border:1px solid #000;*/
+	padding-top: 37px;
+  	background: #428bca;
+  	height: 100%;
+}
+.fixed-head-table .table-container{
+	overflow-y:auto;
+	height: 100%;
+	background-color: #f1f1f1; 
+}
+
+.fixed-head-table .table-container table{
+	border-spacing: 0;
+	width: 100%;
+}
+.fixed-head-table .table-container td + td {
+  border-left:1px solid #eee;
+}
+
+.fixed-head-table .table-container td, 
+.fixed-head-table .table-container th {
+  border-bottom:1px solid #eee;
+  background: #e1e1e7;
+  color: #000;
+  padding: 10px 25px;
+}
+.fixed-head-table .table-container tbody tr:hover td{
+	background: #d1d1d7;
+}
+
+.fixed-head-table .table-container th {
+  height: 0;
+  line-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  color: transparent;
+  border: none;
+  white-space: nowrap;
+}
+.fixed-head-table .table-container th>input{
+	-webkit-appearance:inherit;
+}
+
+.fixed-head-table .table-container th div{
+  position: absolute;
+  background: transparent;
+  color: #fff;
+  padding: 9px 25px;
+  top: 0;
+  margin-left: -25px;
+  line-height: normal;
+  border-left: 1px solid #2776BA;
+}
+.fixed-head-table .table-container th:first-child div{
+  border: none;
+}
+.fixed-head-table .table-container th div.transparent{
+  color: transparent;
+}
+.fixed-head-table .table-container .line-left{
+  border-left: 1px solid #eee;
+}
+.fixed-head-table .table-container td.edit > span,
+.fixed-head-table .table-container td > input[type="text"],
+.fixed-head-table .table-container td button.btn-confirm,
+.fixed-head-table .table-container td.edit button.btn-edit{
+  display: none;
+}
+.fixed-head-table .table-container td.edit > input,
+.fixed-head-table .table-container td.edit button.btn-confirm{
+  display: inherit;
+}
+
+/* dropdown */
+.fixed-head-table .table-container th div.btn-group{
+    padding: 0;
+}
+
+.fixed-head-table .table-container th button{
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
+/*.fixed-head-table .table-container */

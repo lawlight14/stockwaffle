@@ -1,0 +1,52 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+</head>
+<body>
+	<div id="bg">
+		<div id="header">
+			<img src="{{ url_for('static', filename='img/logo.png') }}"> / {{ g.user_name }}님 어서오세요! / <a href="{{ url_for('logout') }}">로그아웃</a>
+		</div>
+		<div id="body">
+			<div id="storelist">
+				{% for sdict in slist %}
+					<div store-no="{{ sdict['no'] }}">
+						<span>{{ sdict['name'] }}</span>
+						<span class="storeModify">수정 </span>
+						{% if sdict['removable'] %}
+							<span>삭제</span>
+						{% endif %}
+						<span style="display:none">
+							<input type="text"> v x
+						</span>
+						{% for cdict in sdict['cstList'] %}
+							<div>
+								<span>{{ cdict['name'] }}</span>
+								<span class="cstModify">수정 </span>
+								{% if cdict['removable'] %}
+									<span>삭제</span>
+								{% endif %}
+								<span style="display:none">
+									<input type="text"> v x
+								</span>
+							</div>
+						{% endfor %}
+					</div>
+				{% endfor %}
+			</div>
+			<div id="detail">
+				<div id="toollist">
+					ㄱ
+				</div>
+				<div id="stocklist">
+					ㄱ
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

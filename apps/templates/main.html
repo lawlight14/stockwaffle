@@ -1,0 +1,89 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>StockWaffle</title>
+	<meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link href='//cdn.jsdelivr.net/font-nanum/1.0/nanumbarungothic/nanumbarungothic.css' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bower_components/bootstrap/dist/css/bootstrap.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main_v2.css') }}">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="http://fgnass.github.io/spin.js/spin.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</head>
+<body>
+<div id="wrap">
+	<div id="nav">
+		<div id="title">
+	    	<div id="logo">
+	    		<img id="logo-icon" src="{{ url_for('static', filename='img/waffle.png') }}">
+	    		<span class="lobster">StockWaffle</span>
+	    	</div>
+		    <div id="logout">로그아웃</div>
+		</div>
+		<div id="toolbar">
+			<ul>
+				<li id="tool-1" class="tool"><img src="{{ url_for('static', filename='img/tool_button_on_01.png') }}" name="tool-img-1"></li>
+				<li id="tool-2" class="tool"><img src="{{ url_for('static', filename='img/tool_button_on_02.png') }}" name="tool-img-2"></li>
+				<li id="tool-3" class="tool"><img src="{{ url_for('static', filename='img/tool_button_on_03.png') }}" name="tool-img-3"></li>
+				<li id="tool-4" class="tool"><img src="{{ url_for('static', filename='img/tool_button_on_04.png') }}" name="tool-img-4"></li>
+				<li id="tool-5" class="tool"><img src="{{ url_for('static', filename='img/tool_button_on_05.png') }}" name="tool-img-5"></li>
+				<li id="tool-6" class="tool"><img src="{{ url_for('static', filename='img/tool_button_on_06.png') }}" name="tool-img-6"></li>
+			</ul>
+		</div>
+		<div id="table_head">
+			<table>
+				<thead>
+					<tr>
+						<td class='col-1'><input type="checkbox" id="select-all"></td>
+						<td class='col-2'>카테고리</td>
+						<td class='col-3'>품명</td>
+						<td class='col-4'>규격</td>
+						<td class='col-5'>실재고</td>
+						<td class='col-6'>단가</td>
+						<td class='col-7'>전월</td>
+						<td class='col-8'>어제</td>
+						<td class='col-9'>오늘</td>
+						<td class='col-10'>메모</td>
+						<td class='col-11'>툴</td>
+						<td class='col-12'></td>
+					</tr>
+				</thead>
+			</table>
+		</div>
+	</div>
+	<div id="content" class="spin">
+		<table class="table table-hover">
+			<tbody>
+				{% for stock in slist %}
+				<tr class="tr-general" stock-no="{{ stock['no'] }}">
+					<td class='col-1'><input type="checkbox" class="select-one" stock-no="{{ stock['no'] }}"></td>
+					<td class='col-2'>카테고리</td>
+					<td class='col-3'>{{ stock['name'] }}</td>
+					<td class='col-4'>{{ stock['size'] }}</td>
+					<td class='col-5'>{{ stock['stock'] }}</td>
+					<td class='col-6'>{{ stock['unitcost'] }}</td>
+					<td class='col-7'>{{ stock['bmstock'] }}</td>
+					<td class='col-8'>{{ stock['ystock'] }}</td>
+					<td class='col-9'>{{ stock['stock'] }}</td>
+					<td class='col-10'>{{ stock['memo'] }}</td>
+					<td class='col-11'>
+						<img src='static/img/s_tool_stock.png' name='gene-stock' class='img-button'>
+						<img src='static/img/s_tool_modify.png' name='gene-modify' class='img-button'>
+						<img src='static/img/s_tool_delete.png' name='gene-delete' class='img-button'>
+					</td>
+					<td class='col-12'></td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+		<div id="spin" style="display:none;"></div>
+	</div>
+</div>
+<div id="hidden">
+	<div id="storeno">{{ store.no }}</div>
+</div>
+</body>
+</html>

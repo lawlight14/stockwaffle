@@ -1,0 +1,116 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+*{
+    box-sizing:border-box;
+}
+.form-control{
+    border-radius: 0px;
+    border: 2px solid #fff;
+    /*border:2px solid #417dbb;*/
+    box-shadow: none;
+    transition:all .1s;
+}
+.form-control:focus{
+    border:2px solid #3498db;
+    background-color: #3498db;
+    color: white;
+    outline: none;
+    box-shadow: none;
+    transition:all .1s;
+}
+.form-control:focus::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #fff;
+}
+.form-control:focus:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #fff;
+    opacity:  1;
+}
+.form-control:focus::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #fff;
+    opacity:  1;
+}
+.form-control:focus:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #fff;
+}
+
+.btn-primary{
+    background-color: #34495e;
+    border: 1px solid #26384c;
+}
+.btn-primary:active{
+    background-color: #f1c40f;
+    border: 1px solid #f1c40f;
+}
+.btn-primary:hover{
+    background-color: #26384c;
+    border: 1px solid #26384c;
+}
+html,body{
+    height: 100%;
+}
+span.lobster{
+    font-family: 'Lobster', cursive;
+}
+
+.responsive-show{
+    display: none;
+}
+@media all and (max-width: 768px){
+    .responsive-hide{
+        display: none !important;
+    }
+    .responsive-show{
+        display: inherit
+    }
+}
+
+span.point{
+    color:#db4c3f;
+}
